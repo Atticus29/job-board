@@ -1,0 +1,14 @@
+<h1>Please enter the job opening specifics:</h1>
+
+<form action="/jobOpenings" method="post">
+  <input id="cityId" type="hidden" name="cityId" value="$city.getId()">
+  <div class="form-group">
+    <label for="title">Job Title:</label><br>
+    <input type="text" name="title"><br>
+    <label for="description">Job Description:</label><br>
+    <input type="text" name="description"><br>
+    <label for="contact">Job Contact Info:</label><br>
+    <input type="text" name="contact"><br>
+  </div>
+  <button type="submit" class="btn btn-success">Submit Job Opening</button>
+</form>

@@ -5,11 +5,13 @@ public class City {
   private String mName;
   private static List<City> instances = new ArrayList<City>();
   private List<JobOpening> mJobOpenings;
+  private int mId;
 
   public City(String name){
     mName = name;
     instances.add(this);
     mJobOpenings = new ArrayList<JobOpening>();
+    mId = instances.size();
   }
 
   public static List<City> all(){
@@ -30,6 +32,14 @@ public class City {
 
   public void addJobOpening(JobOpening job){
     mJobOpenings.add(job);
+  }
+
+  public String getName(){
+    return mName;
+  }
+
+  public int getId(){
+    return mId;
   }
 
 }
