@@ -30,7 +30,7 @@ public class App {
 
     get("/cities/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      City city = City.find(Integer.parseInt(request.params(":id")));
+      City city = City.findByName(request.params(":id"));
 
       model.put("city", city);
       model.put("template", "templates/city.vtl");
@@ -39,7 +39,7 @@ public class App {
 
     get("/cities/:id/jobOpenings/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      City city = City.find(Integer.parseInt(request.params(":id")));
+      City city = City.findByName(request.params(":id"));
       model.put("city", city);
       model.put("template", "templates/city-jobOpenings-form.vtl");
       return new ModelAndView(model, layout);
@@ -56,7 +56,7 @@ public class App {
 
     post("/jobOpenings", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      City city = City.find(Integer.parseInt(request.queryParams("cityId")));
+      City city = City.findByName(request.queryParams("cityName"));
       String title = request.queryParams("title");
       String description = request.queryParams("description");
       String contact = request.queryParams("contact");

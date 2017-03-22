@@ -1,8 +1,8 @@
 <h1>All Cities:</h1>
 
 <ul>
-  #foreach($city in $cities)
-    <li><a href="/cities/$city.getId()">$city.getName()</a></li>
+  #foreach($city in $cities.entrySet())
+    <li><a href="/cities/$city.key">$city.value.getName()</a></li>
   #end
 </ul>
 

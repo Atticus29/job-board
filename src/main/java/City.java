@@ -1,26 +1,29 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 public class City {
   private String mName;
-  private static List<City> instances = new ArrayList<City>();
+  private static Map<String, City> instances = new HashMap<String, City>();
   private List<JobOpening> mJobOpenings;
-  private int mId;
+  // private int mId;
 
   public City(String name){
     mName = name;
-    instances.add(this);
+    instances.put(name, this);
     mJobOpenings = new ArrayList<JobOpening>();
-    mId = instances.size();
+    // mId = instances.size();
   }
 
-  public static List<City> all(){
+  public static Map<String, City> all(){
+
     return instances;
   }
 
-  public static City find(int number){
-    return instances.get(number-1);
-  }
+  // public static City find(int number){
+  //   return instances.get(number-1);
+  // }
 
   public static void clear(){
     instances.clear();
@@ -38,8 +41,12 @@ public class City {
     return mName;
   }
 
-  public int getId(){
-    return mId;
+  // public int getId(){
+  //   return mId;
+  // }
+
+  public static City findByName(String name){
+    return instances.get(name);
   }
 
 }
